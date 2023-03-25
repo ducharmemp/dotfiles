@@ -27,14 +27,14 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
-DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="false"
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aliases rails git ruby rust python dotenv docker-compose docker fzf fd)
+plugins=(aliases rails git ruby rust python dotenv docker-compose docker fzf fd asdf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -62,5 +62,7 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 export PATH="$PATH:$(yarn global bin)"
 alias awslocal="AWS_ACCESS_KEY_ID=test AWS_SECRET_ACCESS_KEY=test AWS_DEFAULT_REGION=${DEFAULT_REGION:-$AWS_DEFAULT_REGION} aws --endpoint-url=http://${LOCALSTACK_HOST:-localhost}:4566"
+export ERL_AFLAGS="-kernel shell_history enabled"
 
 export PATH="$HOME/.poetry/bin:$PATH"
+source ~/.mix_autocomplete.zsh
