@@ -1,5 +1,5 @@
 [include]
-	path = /home/ducharmemp/.gitalias
+	path = ~/.gitalias
 [user]
 	email = ducharmemp@gmail.com
 	name = Matthew DuCharme
