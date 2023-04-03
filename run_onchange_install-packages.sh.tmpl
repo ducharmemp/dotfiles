@@ -18,9 +18,11 @@ if ! [ -x "$(command -v brew)" ]; then
 fi
 
 brew list direnv || brew install direnv
-brew list fzf || brew install fzf
+brew list asdf || brew install asdf
 
 {{ end -}}
+
+asdf plugin add ruby https://github.com/asdf-vm/asdf-ruby.git
 
 if [ -e '/usr/local/opt/fzf/install' ]; then
     /usr/local/opt/fzf/install
