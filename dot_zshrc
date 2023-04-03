@@ -68,3 +68,4 @@ export ERL_AFLAGS="-kernel shell_history enabled"
 
 export PATH="$HOME/.poetry/bin:$PATH"
 source ~/.mix_autocomplete.zsh
+. $ASDF_DIR/asdf.sh
