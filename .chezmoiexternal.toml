@@ -15,8 +15,3 @@
     url = "https://github.com/romkatv/powerlevel10k/archive/v1.16.0.tar.gz"
     exact = true
     stripComponents = 1
-[".vim_runtime"]
-    type = "archive"
-    url = "https://github.com/amix/vimrc/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
