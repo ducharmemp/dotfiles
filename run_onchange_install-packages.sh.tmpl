@@ -22,6 +22,10 @@ brew list fzf || brew install fzf
 
 {{ end -}}
 
+if [ -e '/usr/local/opt/fzf/install' ]; then
+    /usr/local/opt/fzf/install
+fi
+
 if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
 fi
