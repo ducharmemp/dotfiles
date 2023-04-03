@@ -21,4 +21,6 @@ brew list direnv || brew install direnv
 
 {{ end -}}
 
-. /home/ducharmemp/.nix-profile/etc/profile.d/nix.sh
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
