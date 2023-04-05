@@ -55,17 +55,9 @@ source $ZSH/oh-my-zsh.sh
 autoload -Uz compinit
 compinit
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-source /usr/share/doc/fzf/examples/key-bindings.zsh
-source /usr/share/doc/fzf/examples/completion.zsh
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="$PATH:$(yarn global bin)"
 alias awslocal="AWS_ACCESS_KEY_ID=test AWS_SECRET_ACCESS_KEY=test AWS_DEFAULT_REGION=${DEFAULT_REGION:-$AWS_DEFAULT_REGION} aws --endpoint-url=http://${LOCALSTACK_HOST:-localhost}:4566"
 export ERL_AFLAGS="-kernel shell_history enabled"
 
-export PATH="$HOME/.poetry/bin:$PATH"
 source ~/.mix_autocomplete.zsh
 . $ASDF_DIR/asdf.sh
+eval "$(direnv hook zsh)"
