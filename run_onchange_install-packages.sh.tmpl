@@ -41,9 +41,22 @@ fi
 brew list direnv || brew install direnv
 brew list fzf || brew install fzf
 brew list asdf || brew install asdf
-brew list docker || brew install docker
+if ! [ -x "$(command -v docker)" ]; then
+  case "$(uname -m)" in
+    "x86_64") arch="amd64" ;;
+    *) arch="arm64" ::
+  esac
 
-softwareupdate --install-rosetta
+  softwareupdate --install-rosetta || true
+  TMP_FILE_NAME="$(mktemp).dmg"
+  echo $TMP_FILE_NAME
+  curl -fLS -o $TMP_FILE_NAME https://desktop.docker.com/mac/main/$arch/Docker.dmg
+  hdiutil attach $TMP_FILE_NAME
+  pushd /Volumes/Docker
+  rsync -a Docker.app /Applications
+  popd
+  hdiutil detach /Volumes/Docker
+fi
 
 {{ end -}}
 
