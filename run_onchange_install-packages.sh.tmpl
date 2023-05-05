@@ -8,7 +8,7 @@ fi
 {{ if eq .chezmoi.os "linux" -}}
 
 sudo apt-get install direnv
-sudo apt-get install asdf
+sudo apt-get install curl git
 sudo apt-get install fzf
 sudo apt-get update
 sudo apt-get install \
@@ -16,6 +16,7 @@ sudo apt-get install \
     curl \
     gnupg
 
+git clone https://github.com/asdf-vm/asdf.git
 sudo mkdir -m 0755 -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 
