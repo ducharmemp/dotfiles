@@ -2,7 +2,10 @@
 set -eou pipefail
 
 if ! [ -x "$(command -v nix-shell)" ]; then
-    sh <(curl -L https://nixos.org/nix/install)
+    sh <(curl -L https://nixos.org/nix/install) {{ if eq .chezmoi.os "linux" -}} --daemon {{end -}}
+    nix-env -iA cachix -f https://cachix.org/api/v1/install
+    cachix use devenv
+    
 fi
 
 {{ if eq .chezmoi.os "linux" -}}
@@ -16,7 +19,9 @@ sudo apt-get install \
     curl \
     gnupg
 
-git clone https://github.com/asdf-vm/asdf.git
+if ! [ -x "$(command -v asdf)" ]; then
+    git clone https://github.com/asdf-vm/asdf.git
+fi
 sudo mkdir -m 0755 -p /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 
