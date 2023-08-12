@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eou pipefail
+set -eoux pipefail
 
 if ! [ -x "$(command -v nix-shell)" ]; then
     sh <(curl -L https://nixos.org/nix/install) {{ if eq .chezmoi.os "linux" -}} {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }} --no-daemon {{ else }} --daemon {{ end -}} {{end -}}
